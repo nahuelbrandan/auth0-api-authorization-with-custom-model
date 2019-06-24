@@ -1,0 +1,8 @@
+django==1.8
+djangorestframework==3.3.3
+djangorestframework-jwt==1.11
+cryptography==2.7
+pyjwt==1.7.1
+python-dotenv==0.10.3
+django-cors-headers==2.4.1
+django-form-utils==1.0.3
