@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-from auth0login.models import CustomUser
+from auth0authorization.models import CustomUser
 
 admin.site.register(CustomUser)

@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate
 
-from auth0login.backend import MyCustomBackend
+from auth0authorization.backend import MyCustomBackend
 
 
 def jwt_get_username_from_payload_handler(payload):

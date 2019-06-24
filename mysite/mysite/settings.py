@@ -25,7 +25,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'corsheaders',
 
-    'auth0login',
+    'auth0authorization',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -51,6 +51,7 @@ AUTHENTICATION_BACKENDS = {
 }
 
 ROOT_URLCONF = 'mysite.urls'
+
 
 TEMPLATES = [
     {
@@ -104,8 +105,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, '/auth0login/static/')
-
 # ----
 
 REST_FRAMEWORK = {
@@ -146,7 +145,7 @@ if AUTH0_DOMAIN:
 
 JWT_AUTH = {
     'JWT_PAYLOAD_GET_USERNAME_HANDLER':
-        'auth0login.user.jwt_get_username_from_payload_handler',
+        'auth0authorization.user.jwt_get_username_from_payload_handler',
     'JWT_PUBLIC_KEY': PUBLIC_KEY,
     'JWT_ALGORITHM': 'RS256',
     'JWT_AUDIENCE': API_IDENTIFIER,
