@@ -1,2 +1,3 @@
 env/
 .idea/
+mysite/db.sqlite3

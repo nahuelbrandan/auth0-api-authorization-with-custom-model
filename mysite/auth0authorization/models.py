@@ -12,7 +12,7 @@ class CustomUser(AbstractBaseUser):
     username = models.CharField(max_length=50, unique=True)
     # email = models.EmailField(max_length=127, unique=True, null=False, blank=False)
     date_joined = models.DateTimeField(editable=False, auto_now_add=True)
-    is_active = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'username'
