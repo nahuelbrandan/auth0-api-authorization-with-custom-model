@@ -10,7 +10,6 @@ class MyCustomBackend:
             user = CustomUser.objects.get(username=username)
         except CustomUser.DoesNotExist:
             user = CustomUser.objects.create(username=username)
-            user.save()
         return user
 
     def get_user(self, user_id):
