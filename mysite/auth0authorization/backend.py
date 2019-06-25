@@ -1,4 +1,4 @@
-from auth0authorization.models import CustomUser
+from auth0authorization.models import Application
 
 
 class MyCustomBackend:
@@ -7,13 +7,13 @@ class MyCustomBackend:
 
     def authenticate(self, username=None):
         try:
-            user = CustomUser.objects.get(username=username)
-        except CustomUser.DoesNotExist:
-            user = CustomUser.objects.create(username=username)
+            user = Application.objects.get(username=username)
+        except Application.DoesNotExist:
+            user = Application.objects.create(username=username)
         return user
 
     def get_user(self, user_id):
         try:
-            return CustomUser.objects.get(pk=user_id)
-        except CustomUser.DoesNotExist:
+            return Application.objects.get(pk=user_id)
+        except Application.DoesNotExist:
             return None

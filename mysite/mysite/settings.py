@@ -41,13 +41,10 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-# AUTH_USER_MODEL = 'auth0authorization.models.CustomUser'
+AUTH_USER_MODEL = 'auth0authorization.Application'
 
 AUTHENTICATION_BACKENDS = {
-    'auth0authorization.backend.MyCustomBackend',
-
-    'django.contrib.auth.backends.ModelBackend',
-    'django.contrib.auth.backends.RemoteUserBackend',
+    'auth0authorization.backend.ApplicationBackend',
 }
 
 ROOT_URLCONF = 'mysite.urls'
