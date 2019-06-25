@@ -1,13 +1,10 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser
-from django.contrib.auth.models import PermissionsMixin
-from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
-from django.contrib.auth.models import BaseUserManager
+from django.utils.translation import gettext_lazy as _
 from django.utils.translation import ugettext_lazy as _
 
 
-class ApplicationManager(BaseUserManager):
+class ApplicationManager(models.Manager):
     def create_app(self, username, password, **extra_fields):
         if not username:
             raise ValueError(_('The Username must be set'))
@@ -16,8 +13,11 @@ class ApplicationManager(BaseUserManager):
         user.save()
         return user
 
+    def get_by_natural_key(self, username):
+        return self.get(username=username)
 
-class Application(AbstractBaseUser, PermissionsMixin):
+
+class Application(models.Model):
     username = models.CharField(max_length=70, unique=True)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
@@ -36,3 +36,15 @@ class Application(AbstractBaseUser, PermissionsMixin):
 
     def get_long_name(self):
         return self.username
+
+    def get_natural_key(self):
+        return [self.username]
+
+    def is_authenticated(self):
+        return True
+
+    def is_anonymous(self):
+        return False
+
+    def is_not_anonymous(self):
+        return True
