@@ -1,7 +1,7 @@
 from auth0authorization.models import Application
 
 
-class MyCustomBackend:
+class ApplicationBackend:
     def __init__(self):
         pass
 
